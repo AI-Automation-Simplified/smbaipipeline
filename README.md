@@ -1,62 +1,61 @@
-# Dagster for SMBs: From Script Chaos to Unified AI Data Platform
+# smb_sentiment_analysis
 
-![Before: The 'Glue' Trap & YAML Hell / After: The Dagster Foundation (Unified Platform)][def]
+## Getting started
 
-## Why Productionizing AI Fails for SMBs
+### Installing dependencies
 
-Too many small and mid-sized businesses are stuck in the "glue trap":
-- Scripts linked to notebooks and cloud APIs
-- Countless YAML configs
-- Expensive, fragile, and disconnected parts
-- No cost visibility, monitoring, or audit trail
-- “Operational nightmare” every time you try to scale or update
+**Option 1: uv**
 
-As projects grow, this approach leads only to burnout and brittle infrastructure.
+Ensure [`uv`](https://docs.astral.sh/uv/) is installed following their [official documentation](https://docs.astral.sh/uv/getting-started/installation/).
 
----
+Create a virtual environment, and install the required dependencies using _sync_:
 
-## The Dagster Foundation: Unified, Reliable, Auditable
+```bash
+uv sync
+```
 
-> **"Stop gluing scripts. Start building a foundation."**
+Then, activate the virtual environment:
 
-With Dagster, your workflows are no longer a mess of duct-taped scripts and one-off jobs. You get:
-- **A true orchestrator:** Central control plane for all your data + AI workflows
-- **Cost tracking:** Full visibility into every OpenAI/LLM API call
-- **Easy local development:** Test everything on your laptop before scaling
-- **Asset-driven architecture:** Turn fragile scripts into production-ready assets you can monitor, version, and automate
+| OS | Command |
+| --- | --- |
+| MacOS | ```source .venv/bin/activate``` |
+| Windows | ```.venv\Scripts\activate``` |
 
-**Example (see diagram):**
-1. **Fetch customer reviews** from Facebook, Google, Twitter, Instagram (via APIs)
-2. **Store data in DuckDB** (local, open-source, no cloud costs)
-3. **Analyze with OpenAI** (automatic cost tracking, no surprises)
-4. **Auto-update your sales dashboard** every morning  
-   → All with one unified, reliable pipeline!
+**Option 2: pip**
 
----
+Install the python dependencies with [pip](https://pypi.org/project/pip/):
 
-## What This Guide & Video Cover
+```bash
+python3 -m venv .venv
+```
 
-- Why the "glue" approach always fails at scale for SMB AI projects
-- How Dagster provides a *foundation* for modern data, LLM, RAG, and agent workflows—without the enterprise price tag
-- Step-by-step tutorial: Build a customer sentiment analysis pipeline (Python code included)
-- Production best practices: Scheduling, monitoring, error handling, cost controls
+Then activate the virtual environment:
 
----
+| OS | Command |
+| --- | --- |
+| MacOS | ```source .venv/bin/activate``` |
+| Windows | ```.venv\Scripts\activate``` |
 
-## Who Is This For?
+Install the required dependencies:
 
-- SMB founders, operators, and sales leads who need AI/analytics *in production*, not just in notebooks  
-- Data analysts and engineers tired of YAML/config hell  
-- Anyone ready to turn GenAI prototypes into reliable, business-driving assets
+```bash
+pip install -e ".[dev]"
+```
 
----
+### Running Dagster
 
-> **Join us on [YouTube](#), read the full deep dive on [Substack](#), and get hands-on code in our [GitHub repo](#).**
+Start the Dagster UI web server:
 
----
+```bash
+dg dev
+```
 
-### ![Before/After: The Dagster Difference][def]
+Open http://localhost:3000 in your browser to see the project.
 
-**Stop gluing scripts. Start building a foundation.**
+## Learn more
 
-[def]: ./docs/dagster_ai_platform.jpeg
+To learn more about this template and Dagster in general:
+
+- [Dagster Documentation](https://docs.dagster.io/)
+- [Dagster University](https://courses.dagster.io/)
+- [Dagster Slack Community](https://dagster.io/slack)
